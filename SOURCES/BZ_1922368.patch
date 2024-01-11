@@ -1,0 +1,76 @@
+diff --git a/minimum-constraints.txt b/minimum-constraints.txt
+index a3ba9471..8dd066ca 100644
+--- a/minimum-constraints.txt
++++ b/minimum-constraints.txt
+@@ -56,7 +56,6 @@ wheel==0.33.6; python_version >= '3.8'
+ # Direct dependencies for install (must be consistent with requirements.txt)
+ 
+ M2Crypto==0.31.0
+-mock==2.0.0
+ ordereddict==1.1
+ ply==3.10
+ PyYAML==3.11; python_version == '2.6'
+diff --git a/pywbem_mock/_wbemconnection_mock.py b/pywbem_mock/_wbemconnection_mock.py
+index e5dd0f8d..6ea95119 100644
+--- a/pywbem_mock/_wbemconnection_mock.py
++++ b/pywbem_mock/_wbemconnection_mock.py
+@@ -40,7 +40,7 @@ try:
+     from collections import Counter
+ except ImportError:
+     from backport_collections import Counter
+-from mock import Mock
++from unittest.mock import Mock
+ import six
+ 
+ try:
+diff --git a/requirements.txt b/requirements.txt
+index 69a01d7c..f1287af2 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -11,7 +11,6 @@
+ 
+ # On Windows, M2Crypto must be installed via pywbem_os_setup.bat
+ M2Crypto>=0.31.0; python_version < '3.0' and sys_platform != 'win32'
+-mock>=2.0.0
+ ordereddict>=1.1; python_version == '2.6'
+ ply>=3.10
+ PyYAML>=3.11,<3.12; python_version == '2.6'  # yaml package
+diff --git a/tests/unittest/pywbem/test_cim_obj.py b/tests/unittest/pywbem/test_cim_obj.py
+index 3d0e3b80..e0d9e39f 100755
+--- a/tests/unittest/pywbem/test_cim_obj.py
++++ b/tests/unittest/pywbem/test_cim_obj.py
+@@ -12,7 +12,7 @@ from __future__ import absolute_import, print_function
+ import sys
+ import re
+ from datetime import timedelta, datetime
+-from mock import patch
++from unittest.mock import patch
+ try:
+     from collections import OrderedDict
+ except ImportError:
+diff --git a/tests/unittest/pywbem/test_itermethods.py b/tests/unittest/pywbem/test_itermethods.py
+index 635bd130..7343f6fe 100644
+--- a/tests/unittest/pywbem/test_itermethods.py
++++ b/tests/unittest/pywbem/test_itermethods.py
+@@ -24,7 +24,7 @@ from __future__ import absolute_import, print_function
+ import pytest
+ import six
+ 
+-from mock import Mock
++from unittest.mock import Mock
+ 
+ from ...utils import import_installed
+ pywbem = import_installed('pywbem')  # noqa: E402
+diff --git a/tests/unittest/pywbem/test_valuemapping.py b/tests/unittest/pywbem/test_valuemapping.py
+index 27f86588..db31d3c3 100644
+--- a/tests/unittest/pywbem/test_valuemapping.py
++++ b/tests/unittest/pywbem/test_valuemapping.py
+@@ -7,7 +7,7 @@ from __future__ import absolute_import
+ 
+ import re
+ import pytest
+-from mock import Mock
++from unittest.mock import Mock
+ 
+ from ...utils import import_installed
+ pywbem = import_installed('pywbem')  # noqa: E402
